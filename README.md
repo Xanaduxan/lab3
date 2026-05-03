@@ -1,5 +1,6 @@
-3 Лабораторная
-1 часть
+### 3 Лабораторная
+
+### Часть 1
 
 ## Создание сертификата
 
@@ -66,3 +67,57 @@ https://calc.local/secret.txt
 Показываем страницу 404 по несуществующему адресу
 
 ![alt text](image-3.png)
+
+### Часть 2
+
+Проверяем ![alt text](image-6.png)
+
+## ffuf
+
+[WARN] Caught keyboard interrupt (Ctrl-C)
+
+ffuf -u https://<здесь адрес из картинки выше>/FUZZ -w SecLists/Discovery/Web-Content/common.txt -fc 404
+
+        /'___\  /'___\           /'___\
+       /\ \__/ /\ \__/  __  __  /\ \__/
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+         \ \_\   \ \_\  \ \____/  \ \_\
+          \/_/    \/_/   \/___/    \/_/
+
+       v2.1.0-dev
+
+---
+
+:: Method : GET
+:: URL : https://<здесь адрес из картинки выше>/FUZZ
+:: Wordlist : FUZZ: /home/xanadu/git/SecLists/Discovery/Web-Content/common.txt
+:: Follow redirects : false
+:: Calibration : false
+:: Timeout : 10
+:: Threads : 40
+:: Matcher : Response status: 200-299,301,302,307,401,403,405,500
+:: Filter : Response status: 404
+
+---
+
+:: Progress: [80/4751] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:22] :: Errors: 40 ::
+
+Явно есть защита от fuzz не могу пройти все проверки - валятся ошибки
+
+## IDOR
+
+Захожу без авторизации. Защита есть
+![alt text](image-4.png)
+редирект на авторизацию
+![alt text](image-5.png)
+
+## Path traversal
+
+Запросы с разной глубиной ничего не вернули.
+
+```
+../../../../etc/passwd
+../../../../../etc/passwd
+../../../../../../../etc/passwd
+```
