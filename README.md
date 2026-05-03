@@ -23,21 +23,23 @@ sudo systemctl reload nginx
 
 ## Первый проект
 
-React-приложение доступно по адресу:
-
-https://testbuild.local/testbuild
-
-При открытии происходит автоматический переход с HTTP на HTTPS.
-
-![alt text](image.png)
-
-## Второй проект
-
 Go backend доступен по адресу:
 
 https://calc.local
 
 Также настроено перенаправление на HTTPS.
+
+#
+
+![alt text](image.png)
+
+# Второй проект
+
+React-приложение доступно по адресу:
+
+https://testbuild.local/testbuild
+
+При открытии происходит автоматический переход с HTTP на HTTPS.
 
 ![alt text](image-1.png)
 
